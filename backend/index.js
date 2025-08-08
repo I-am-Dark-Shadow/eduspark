@@ -24,8 +24,7 @@ const app = express();
 
 // Allowable origins from .env
 const allowedOrigins = [
-  process.env.CLIENT_URL,         
-  process.env.CLIENT_URL_VERCEL, 
+  'https://eduspark-pi.vercel.app', 
 ];
 
 // CORS setup to allow both dev and deployed frontends
