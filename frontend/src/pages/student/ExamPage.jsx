@@ -18,6 +18,34 @@ const ExamPage = () => {
   const [timeLeft, setTimeLeft] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  // --- NEW: useEffect for security features ---
+  useEffect(() => {
+    // Prevent right-click context menu
+    const handleContextMenu = (e) => e.preventDefault();
+    document.addEventListener('contextmenu', handleContextMenu);
+
+    // Prevent keyboard shortcuts for developer tools
+    const handleKeyDown = (e) => {
+      if (
+        e.key === 'F12' ||
+        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+        (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+        (e.ctrlKey && e.key === 'U')
+      ) {
+        e.preventDefault();
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+
+    // This is a cleanup function. It runs when the component unmounts.
+    // It's crucial for re-enabling these features on other pages.
+    return () => {
+      document.removeEventListener('contextmenu', handleContextMenu);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []); // The empty array means this effect runs only once when the page loads.
+
+
   // This logic remains the same
   useEffect(() => {
     const startAndFetchExam = async () => {
@@ -106,10 +134,8 @@ const ExamPage = () => {
   const isAnswered = answers[currentQuestion.id] !== undefined;
 
   return (
-    // Responsive Change: Adjusted padding for the whole page
-    <div className="min-h-screen bg-slate-100 flex flex-col p-2 sm:p-4 md:p-6">
-      {/* Header */}
-      {/* Responsive Change: Header stacks on small screens */}
+    // NEW: Added `select-none` class to disable text highlighting/copying
+    <div className="min-h-screen bg-slate-100 flex flex-col p-2 sm:p-4 md:p-6 select-none">
       <div className="bg-white shadow-md rounded-2xl p-4 mb-6 flex flex-col sm:flex-row justify-between items-center gap-4">
         <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-primary text-center sm:text-left">{exam.title}</h1>
         <div className={`flex items-center gap-2 font-bold text-lg md:text-xl px-4 py-2 rounded-lg ${timeLeft < 300 ? 'bg-red-100 text-red-600 animate-pulse' : 'bg-green-100 text-green-600'}`}>
@@ -118,13 +144,9 @@ const ExamPage = () => {
         </div>
       </div>
 
-      {/* Main Content */}
-      {/* Responsive Change: Stacks vertically on mobile, row on desktop */}
       <div className="flex-grow flex flex-col lg:flex-row gap-6">
-        {/* Navigation & Submit Panel (order-1 makes it appear first on mobile) */}
         <div className="lg:flex-[1] lg:order-2 bg-white rounded-2xl shadow-lg p-4 md:p-6 flex flex-col">
           <h3 className="text-xl font-bold mb-4 text-center">Question Palette</h3>
-          {/* Responsive Change: Smaller buttons on mobile */}
           <div className="grid grid-cols-6 sm:grid-cols-7 md:grid-cols-5 gap-2 md:gap-3 mb-6">
             {exam.questions.map((q, index) => (
               <button
@@ -146,13 +168,11 @@ const ExamPage = () => {
           </div>
         </div>
 
-        {/* Question Panel (order-2 makes it appear second on mobile) */}
         <motion.div initial={{opacity: 0, x: -50}} animate={{opacity: 1, x: 0}} className="lg:flex-[3] lg:order-1 bg-white rounded-2xl shadow-lg p-4 md:p-8 flex flex-col">
           <div className="mb-6">
             <span className="text-sm font-bold bg-primary text-white px-3 py-1 rounded-full">
               Question {currentQuestionIndex + 1} of {exam.questions.length}
             </span>
-            {/* Responsive Change: Adjusted text size */}
             <h2 className="text-xl md:text-2xl font-semibold mt-4 text-slate-800">{currentQuestion.question}</h2>
           </div>
           
@@ -163,7 +183,6 @@ const ExamPage = () => {
                 <div
                   key={index}
                   onClick={() => handleOptionSelect(currentQuestion.id, index)}
-                  // Responsive Change: Adjusted padding and text size
                   className={`p-3 md:p-4 border-2 rounded-xl text-base md:text-lg transition-all duration-200 cursor-pointer flex items-center gap-4
                     ${isAnswered && !isSelected ? 'bg-slate-100 text-slate-500 cursor-not-allowed' : ''}
                     ${isSelected ? 'border-secondary bg-emerald-50 ring-2 ring-secondary' : 'border-slate-200 hover:border-primary'}
@@ -178,7 +197,6 @@ const ExamPage = () => {
             })}
           </div>
 
-          {/* Responsive Change: Buttons stack on mobile */}
           <div className="mt-auto pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
             <button onClick={() => setCurrentQuestionIndex(prev => Math.max(0, prev - 1))} disabled={currentQuestionIndex === 0} className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-slate-700 bg-slate-200 hover:bg-slate-300 disabled:opacity-50 transition-colors"><LuArrowLeft /> Previous</button>
             {!isAnswered && <button onClick={handleSkip} className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-white bg-amber-500 hover:bg-amber-600 transition-colors"><LuSkipForward /> Skip</button>}

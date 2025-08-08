@@ -67,7 +67,7 @@ const LoginPage = () => {
             />
             <label
               htmlFor="email"
-              className="absolute left-4 -top-3.5 text-slate-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-400 peer-placeholder-shown:top-3.5 peer-focus:-top-6 peer-focus:text-primary peer-focus:text-sm"
+              className="absolute left-4 -top-6 text-slate-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-400 peer-placeholder-shown:top-3.5 peer-focus:-top-6 peer-focus:text-primary peer-focus:text-sm"
             >
               Email address
             </label>
@@ -85,7 +85,7 @@ const LoginPage = () => {
             />
              <label
               htmlFor="password"
-              className="absolute left-4 -top-3.5 text-slate-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-400 peer-placeholder-shown:top-3.5 peer-focus:-top-6 peer-focus:text-primary peer-focus:text-sm"
+              className="absolute left-4 -top-6 text-slate-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-400 peer-placeholder-shown:top-3.5 peer-focus:-top-6 peer-focus:text-primary peer-focus:text-sm"
             >
               Password
             </label>
