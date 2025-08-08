@@ -46,7 +46,11 @@ const LoginPage = () => {
       >
         <div className="text-center">
           {/* Responsive Change: Adjusted text size */}
-          <h1 className="text-3xl md:text-4xl font-extrabold text-primary">EduSpark</h1>
+          <img
+            src="logo.png"
+            alt="Logo"
+            className="w-28 h-28 md:w-56 md:h-56 mx-auto"
+          />
           <p className="text-slate-500 mt-2">Sign in to your account</p>
         </div>
 
