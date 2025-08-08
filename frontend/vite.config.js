@@ -7,7 +7,7 @@ export default defineConfig({
   // Add this server proxy configuration for local development
   server: {
     proxy: {
-      '/api': {
+      'https://eduspark-b4ft.vercel.app': {
         target: 'http://localhost:5001', // Your local backend URL
         changeOrigin: true,
       }

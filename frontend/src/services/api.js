@@ -4,7 +4,7 @@ import useAuthStore from '../store/authStore';
 const api = axios.create({
   // Use a relative path. This will automatically point to the backend
   // on the same Vercel domain.
-  baseURL: '/api',
+  baseURL: 'https://eduspark-b4ft.vercel.app',
   // This is required for cookies to work on the same domain
   withCredentials: true, 
 });
