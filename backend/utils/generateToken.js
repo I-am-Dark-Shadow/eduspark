@@ -8,8 +8,6 @@ const generateToken = (res, userId, role) => {
     // Set JWT as an HTTP-Only cookie
     res.cookie('jwt', token, {
         httpOnly: true,
-        secure: true,        // Always true on Vercel (uses HTTPS)
-        sameSite: 'none',    // Required for cross-origin cookies
         maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
     });
 
