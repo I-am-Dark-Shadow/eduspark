@@ -25,7 +25,7 @@ const app = express();
 // Allowable origins from .env
 const allowedOrigins = [
   process.env.CLIENT_URL,         
-  process.env.VERCEL_CLIENT_URL, 
+  process.env.CLIENT_URL_VERCEL, 
 ];
 
 // CORS setup to allow both dev and deployed frontends
