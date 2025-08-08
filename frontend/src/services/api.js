@@ -2,18 +2,17 @@ import axios from 'axios';
 import useAuthStore from '../store/authStore';
 
 const api = axios.create({
-  baseURL: 'https://eduspark-vdqw.vercel.app/', // Your backend URL
+  // CHANGE THIS: Use a relative path for production
+  baseURL: '/api',
 });
 
-// Interceptor to handle automatic logout on 401 response
+// The interceptor can be simplified as withCredentials is now needed
 api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response && error.response.status === 401) {
-      // If the error is on a route other than login, it means the token is invalid/expired
-      if (!error.config.url.includes('/api/users/login')) {
+      if (!error.config.url.includes('/users/login')) {
         useAuthStore.getState().logout();
-        // Optionally redirect to login page
         window.location.href = '/login';
       }
     }
