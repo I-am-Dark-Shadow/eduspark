@@ -1,14 +1,14 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vite.dev/config/
+// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // Add this server proxy configuration
+  // Add this server proxy configuration for local development
   server: {
     proxy: {
       '/api': {
-        target: 'https://eduspark-vdqw.vercel.app', // Your local backend URL
+        target: 'http://localhost:5001', // Your local backend URL
         changeOrigin: true,
       }
     }

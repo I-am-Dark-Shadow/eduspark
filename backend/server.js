@@ -4,9 +4,8 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import { connectDB } from './config/db.js';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
-import path from 'path';
 
-// Import Routes
+// Import all your routes
 import userRoutes from './routes/userRoutes.js';
 import examRoutes from './routes/examRoutes.js';
 import resultRoutes from './routes/resultRoutes.js';
@@ -20,9 +19,10 @@ connectDB();
 
 const app = express();
 
-// This is the crucial part. It reads the frontend URL from Vercel's settings.
+// The CORS configuration is simpler now, as we'll be on one domain.
+// However, we'll keep it for local development flexibility.
 app.use(cors({
-    origin: process.env.FRONTEND_URL,
+    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
     credentials: true,
 }));
 
@@ -39,5 +39,5 @@ app.use('/api/view-requests', viewRequestRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/upload', uploadRoutes);
 
-// Export the app for Vercel's serverless environment
+// Export the app for Vercel
 export default app;

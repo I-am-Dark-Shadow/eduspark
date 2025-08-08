@@ -2,13 +2,13 @@ import axios from 'axios';
 import useAuthStore from '../store/authStore';
 
 const api = axios.create({
-  // Use a relative path. This will automatically point to your Vercel backend.
+  // Use a relative path. This will automatically point to the backend
+  // on the same Vercel domain.
   baseURL: '/api',
-  // withCredentials is now needed for cookies to work on the same domain
+  // This is required for cookies to work on the same domain
   withCredentials: true, 
 });
 
-// Interceptor to handle automatic logout on 401 response
 api.interceptors.response.use(
   (response) => response,
   (error) => {
