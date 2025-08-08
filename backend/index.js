@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
 
 // Allowable origins from .env
 const allowedOrigins = [
-  'https://eduspark-one.vercel.app/', 
+  'https://eduspark-one.vercel.app', 
 ];
 
 // CORS setup to allow both dev and deployed frontends
