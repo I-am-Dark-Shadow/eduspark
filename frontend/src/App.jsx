@@ -19,6 +19,9 @@ import MyResultsPage from './pages/student/MyResultsPage';
 import ResultDetailPage from './pages/student/ResultDetailPage';
 import ProfilePage from './pages/student/ProfilePage';
 import ViewRequestsPage from './pages/teacher/ViewRequestsPage';
+import PaymentsPage from './pages/teacher/PaymentsPage';
+import PaymentRequestsPage from './pages/teacher/PaymentRequestsPage';
+import MyPaymentsPage from './pages/student/MyPaymentsPage';
 
 function App() {
   const { user } = useAuthStore();
@@ -45,6 +48,8 @@ function App() {
           <Route path="/teacher/student/:id" element={<ProtectedRoute allowedRoles={['teacher']}><StudentDetailPage /></ProtectedRoute>} />
           <Route path="/teacher/retakes" element={<ProtectedRoute allowedRoles={['teacher']}><RetakeRequestsPage /></ProtectedRoute>} />
           <Route path="/teacher/view-requests" element={<ProtectedRoute allowedRoles={['teacher']}><ViewRequestsPage /></ProtectedRoute>} />
+          <Route path="/teacher/payments" element={<ProtectedRoute allowedRoles={['teacher']}><PaymentsPage /></ProtectedRoute>} />
+          <Route path="/teacher/payment-requests" element={<ProtectedRoute allowedRoles={['teacher']}><PaymentRequestsPage /></ProtectedRoute>} />
         </Route>
 
         {/* Student Routes */}
@@ -54,6 +59,7 @@ function App() {
           <Route path="/student/results" element={<ProtectedRoute allowedRoles={['student']}><MyResultsPage /></ProtectedRoute>} />
           <Route path="/student/result/:id" element={<ProtectedRoute allowedRoles={['student']}><ResultDetailPage /></ProtectedRoute>} />
           <Route path="/student/profile" element={<ProtectedRoute allowedRoles={['student']}><ProfilePage /></ProtectedRoute>} />
+          <Route path="/student/payments" element={<ProtectedRoute allowedRoles={['student']}><MyPaymentsPage /></ProtectedRoute>} />
         </Route>
         
         {/* Exam taking page is outside the main layout */}

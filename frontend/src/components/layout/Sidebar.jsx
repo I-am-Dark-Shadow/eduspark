@@ -11,8 +11,9 @@ import {
   LuUser, 
   LuLogOut, 
   LuFilePlus2,
-  LuBadgeHelp , // Correct icon name
-  LuX, // Close icon for mobile
+  LuBadgeHelp , 
+  LuX, 
+  LuIndianRupee,
 } from "react-icons/lu";
 
 // We receive props to control the mobile sidebar's state
@@ -37,6 +38,8 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
     { icon: <LuUsers />, text: 'Students', path: '/teacher/students' },
     { icon: <LuBell />, text: 'Retake Requests', path: '/teacher/retakes' },
     { icon: <LuBadgeHelp  />, text: 'View Requests', path: '/teacher/view-requests' },
+    { icon: <LuIndianRupee />, text: 'Payments', path: '/teacher/payments' },
+    { icon: <LuIndianRupee />, text: 'Payment Requests', path: '/teacher/payment-requests' },
   ];
 
   const studentLinks = [
@@ -44,6 +47,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
     { icon: <LuBook />, text: 'Exams', path: '/student/exams' },
     { icon: <LuClipboardList />, text: 'My Results', path: '/student/results' },
     { icon: <LuUser />, text: 'Profile', path: '/student/profile' },
+    { icon: <LuIndianRupee />, text: 'My Payments', path: '/student/payments' },
   ];
 
   const links = user?.role === 'teacher' ? teacherLinks : studentLinks;
