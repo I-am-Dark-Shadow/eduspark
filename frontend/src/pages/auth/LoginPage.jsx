@@ -29,6 +29,7 @@ const LoginPage = () => {
       const homePath = data.role === 'teacher' ? '/teacher/dashboard' : '/student/dashboard';
       navigate(homePath);
     } catch (error) {
+      console.error(error);
       toast.error(error.response?.data?.message || 'Login failed. Please try again.');
     } finally {
       setIsLoading(false);

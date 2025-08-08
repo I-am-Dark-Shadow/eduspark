@@ -22,7 +22,7 @@ const app = express();
 // The CORS configuration is simpler now, as we'll be on one domain.
 // However, we'll keep it for local development flexibility.
 app.use(cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+    origin: 'http://localhost:5173',
     credentials: true,
 }));
 
@@ -40,4 +40,5 @@ app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/upload', uploadRoutes);
 
 // Export the app for Vercel
-export default app;
+const PORT = process.env.PORT || 5001;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
