@@ -2,7 +2,7 @@ import axios from 'axios';
 import useAuthStore from '../store/authStore';
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_REACT_APP_BACKEND_BASEURL, // Your backend URL
+  baseURL: "https://eduspark-xrhj.onrender.com", // Your backend URL
   withCredentials: true, // This is crucial for sending cookies
 });
 
