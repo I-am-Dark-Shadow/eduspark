@@ -19,7 +19,9 @@ const ViewRequestsPage = () => {
         try {
             const params = view === 'history' ? { history: true } : {};
             const { data } = await api.get('/api/view-requests', { params });
-            setRequests(data);
+            // THIS IS THE FIX: Filter out any requests that have a null result
+            const validRequests = data.filter(req => req.result && req.result.exam);
+            setRequests(validRequests);
         } catch (error) {
             toast.error("Failed to fetch view requests.");
         } finally {
@@ -60,8 +62,8 @@ const ViewRequestsPage = () => {
                     <p className="text-xl font-bold text-slate-700">No {view} requests found.</p>
                 </div>
             ) : (
-                 // Responsive Change: Card list for mobile
                 <div className="space-y-4 md:hidden">
+                    {/* --- Mobile Card View --- */}
                     {requests.map(req => (
                         <div key={req._id} className="bg-surface p-4 rounded-lg shadow-md space-y-3">
                             <div>
@@ -93,8 +95,8 @@ const ViewRequestsPage = () => {
             )}
             
             {!isLoading && requests.length > 0 && (
-                // Responsive Change: Table for desktop
-                <div className="hidden md:block bg-surface rounded-xl shadow-lg overflow-x-auto">
+                 <div className="hidden md:block bg-surface rounded-xl shadow-lg overflow-x-auto">
+                    {/* --- Desktop Table View --- */}
                     <table className="w-full text-left">
                         <thead className="bg-slate-50 border-b border-slate-200">
                             <tr>

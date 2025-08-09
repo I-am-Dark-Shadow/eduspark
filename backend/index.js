@@ -14,6 +14,7 @@ import viewRequestRoutes from './routes/viewRequestRoutes.js';
 import dashboardRoutes from './routes/dashboardRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 import paymentRoutes from './routes/paymentRoutes.js';
+import notificationRoutes from './routes/notificationRoutes.js';
 
 // Load environment variables
 dotenv.config();
@@ -29,7 +30,7 @@ app.get('/', (req, res) => {
 
 // Allowable origins from .env
 const allowedOrigins = [
-  // 'http://localhost:5173', 
+  //'http://localhost:5173', 
   'https://eduspark-one.vercel.app',
 ];
 
@@ -62,6 +63,7 @@ app.use('/api/view-requests', viewRequestRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/upload', uploadRoutes);
 app.use('/api/payments', paymentRoutes);
+app.use('/api/notifications', notificationRoutes);
 
 // Error handling middleware
 app.use(notFound);

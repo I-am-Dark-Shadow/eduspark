@@ -12,9 +12,9 @@ const CreateExamPage = () => {
     const placeholderJson = `[
   {
     "id": 1,
-    "question": "What is the capital of France?",
-    "options": ["Berlin", "Madrid", "Paris", "Rome"],
-    "correct": 2
+    "question": "What is the capital of India?",
+    "options": ["Kolkata", "Pune", "Mumbai", "Delhi"],
+    "correct": 3
   },
   {
     "id": 2,

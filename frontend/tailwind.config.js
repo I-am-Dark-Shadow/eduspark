@@ -7,23 +7,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        'primary': '#4f46e5',
-        'secondary': '#10b981',
-        'background': '#f1f5f9',
-        'surface': '#ffffff',
-        'on-surface': '#1e293b',
-        'on-primary': '#ffffff',
-        'on-secondary': '#ffffff',
-        'danger': '#ef4444',
+        // New Color Palette
+        'primary': '#FF6B00', // Vibrant Orange
+        'secondary': '#00C49F', // Teal Green
+        'background': '#F7F8FC', // Light Grey Background
+        'surface': '#FFFFFF', // White for cards
+        'on-surface': '#4A4A68', // Dark text color
+        'on-surface-secondary': '#A0A0B8', // Lighter text color
+        'border-color': '#EFF0F6',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
       },
-      keyframes: {
-        shimmer: {
-          '100%': { transform: 'translateX(100%)' }
-        }
-      }
     },
   },
   plugins: [

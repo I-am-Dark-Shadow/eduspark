@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect  } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import Header from './Header';
 import { motion } from 'framer-motion';
+import useAuthStore from '../../store/authStore';
+import useNotificationStore from '../../store/notificationStore';
 
 const getTitleFromPathname = (pathname) => {
   const parts = pathname.split('/').filter(Boolean);
@@ -20,6 +22,15 @@ const Layout = () => {
   // Responsive Change: State to manage sidebar visibility on mobile
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+
+  const { user } = useAuthStore();
+  const { fetchCounts } = useNotificationStore();
+
+  useEffect(() => {
+    if (user?.role === 'teacher') {
+      fetchCounts();
+    }
+  }, [user, fetchCounts]);
 
   return (
     // Responsive Change: On mobile, the sidebar is a fixed overlay. On desktop, it's part of the flex layout.

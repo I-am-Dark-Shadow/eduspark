@@ -5,7 +5,7 @@ import useAuthStore from '../../store/authStore';
 import Spinner from '../../components/common/Spinner';
 import Modal from '../../components/common/Modal';
 import AddStudentModal from '../../components/teacher/AddStudentModal';
-import { LuUsers, LuFilePlus2, LuBell, LuBadgePlus , LuBadgeHelp , LuClock } from 'react-icons/lu';
+import { LuUsers, LuFilePlus2, LuBell, LuPlus , LuBadgeHelp , LuClock } from 'react-icons/lu';
 import { format } from 'date-fns';
 
 const TeacherDashboard = () => {
@@ -36,53 +36,46 @@ const TeacherDashboard = () => {
         }
     };
 
-    const handleStudentAdded = () => {
-        fetchDashboardData();
-    };
+    const handleStudentAdded = () => { fetchDashboardData(); };
 
-    if (isLoading) {
-        return <div className="flex justify-center items-center h-64"><Spinner size="12" /></div>;
-    }
+    if (isLoading) return <div className="flex justify-center items-center h-64"><Spinner size="12" /></div>;
 
     return (
-        <div>
-            {/* Responsive Change: Text size smaller on mobile */}
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">Welcome, {user?.name}!</h2>
+        <div className="space-y-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-on-surface">Welcome, {user?.name}!</h2>
 
-            {/* Responsive Change: Grid stacks to 1 column on mobile, 2 on tablet, 4 on desktop */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <StatCard icon={<LuUsers size={32} />} label="Total Students" value={stats.studentCount} colorClass="text-primary bg-blue-100" />
-                <StatCard icon={<LuFilePlus2 size={32} />} label="Exams Created" value={stats.examCount} colorClass="text-secondary bg-green-100" />
-                <StatCard icon={<LuBell size={32} />} label="Pending Retakes" value={stats.pendingRetakes} colorClass="text-danger bg-red-100" />
-                <StatCard icon={<LuBadgeHelp  size={32} />} label="Pending View Requests" value={stats.pendingViewRequests} colorClass="text-amber-600 bg-amber-100" />
+                <StatCard icon={<LuUsers size={24} />} label="Total Students" value={stats.studentCount} />
+                <StatCard icon={<LuFilePlus2 size={24} />} label="Exams Created" value={stats.examCount} />
+                <StatCard icon={<LuBell size={24} />} label="Pending Retakes" value={stats.pendingRetakes} />
+                <StatCard icon={<LuBadgeHelp  size={24} />} label="Pending View Requests" value={stats.pendingViewRequests} />
             </div>
 
-            {/* Responsive Change: Grid stacks vertically on mobile/tablet */}
-            <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <div className="lg:col-span-1 bg-surface p-6 rounded-2xl shadow-lg">
-                    <h3 className="text-xl font-bold mb-4">Quick Actions</h3>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className="lg:col-span-1 bg-surface p-6 rounded-2xl shadow-sm">
+                    <h3 className="text-xl font-bold mb-4 text-on-surface">Quick Actions</h3>
                     <div className="space-y-3">
-                        <button onClick={() => setIsModalOpen(true)} className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors">
-                            <LuBadgePlus  /> Add New Student
+                        <button onClick={() => setIsModalOpen(true)} className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-orange-700 transition-colors">
+                            <LuPlus  /> Add New Student
                         </button>
-                        <button onClick={() => navigate('/teacher/create-exam')} className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-secondary text-white font-semibold rounded-lg shadow-md hover:bg-emerald-700 transition-colors">
+                        <button onClick={() => navigate('/teacher/create-exam')} className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-secondary text-white font-semibold rounded-lg shadow-md hover:bg-teal-700 transition-colors">
                             <LuFilePlus2 /> Create New Exam
                         </button>
                     </div>
                 </div>
-                <div className="lg:col-span-2 bg-surface p-6 rounded-2xl shadow-lg">
-                    <h3 className="text-xl font-bold mb-4">My Created Exams</h3>
+                <div className="lg:col-span-2 bg-surface p-6 rounded-2xl shadow-sm">
+                    <h3 className="text-xl font-bold mb-4 text-on-surface">Recently Created Exams</h3>
                     {stats.recentExams.length > 0 ? (
                         <ul className="space-y-3">
                             {stats.recentExams.map(exam => (
-                                <li key={exam._id} className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-3 bg-slate-50 rounded-lg">
-                                    <span className="font-semibold text-slate-700">{exam.title}</span>
-                                    <span className="text-sm text-slate-500 flex items-center gap-1"><LuClock size={14} /> {format(new Date(exam.createdAt), 'PP')}</span>
+                                <li key={exam._id} className="flex justify-between items-center p-3 bg-background rounded-lg">
+                                    <span className="font-semibold text-on-surface">{exam.title}</span>
+                                    <span className="text-sm text-on-surface-secondary flex items-center gap-1.5"><LuClock size={14} /> {format(new Date(exam.createdAt), 'PP')}</span>
                                 </li>
                             ))}
                         </ul>
                     ) : (
-                        <p className="text-slate-500 text-center py-8">You have not created any exams yet.</p>
+                        <p className="text-on-surface-secondary text-center py-8">You have not created any exams yet.</p>
                     )}
                 </div>
             </div>
@@ -94,13 +87,13 @@ const TeacherDashboard = () => {
     );
 };
 
-const StatCard = ({ icon, label, value, colorClass }) => (
-    <div className="bg-surface p-6 rounded-2xl shadow-lg flex items-center gap-4">
-        <div className={`${colorClass} p-3 md:p-4 rounded-full`}>{icon}</div>
-        <div>
-            <h3 className="font-bold text-slate-500 text-sm md:text-base">{label}</h3>
-            <p className={`text-3xl md:text-4xl font-extrabold mt-1`}>{value}</p>
+const StatCard = ({ icon, label, value }) => (
+     <div className="bg-surface p-6 rounded-2xl shadow-sm">
+        <div className="flex items-center gap-4">
+            <div className="bg-primary/10 text-primary p-3 rounded-xl">{icon}</div>
+            <p className="font-semibold text-on-surface-secondary">{label}</p>
         </div>
+        <p className="text-4xl font-bold text-on-surface mt-4">{value}</p>
     </div>
 );
 

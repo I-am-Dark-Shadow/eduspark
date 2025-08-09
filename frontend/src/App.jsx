@@ -22,6 +22,7 @@ import ViewRequestsPage from './pages/teacher/ViewRequestsPage';
 import PaymentsPage from './pages/teacher/PaymentsPage';
 import PaymentRequestsPage from './pages/teacher/PaymentRequestsPage';
 import MyPaymentsPage from './pages/student/MyPaymentsPage';
+import NotificationsPage from './pages/teacher/NotificationsPage';
 
 function App() {
   const { user } = useAuthStore();
@@ -50,6 +51,7 @@ function App() {
           <Route path="/teacher/view-requests" element={<ProtectedRoute allowedRoles={['teacher']}><ViewRequestsPage /></ProtectedRoute>} />
           <Route path="/teacher/payments" element={<ProtectedRoute allowedRoles={['teacher']}><PaymentsPage /></ProtectedRoute>} />
           <Route path="/teacher/payment-requests" element={<ProtectedRoute allowedRoles={['teacher']}><PaymentRequestsPage /></ProtectedRoute>} />
+          <Route path="/teacher/notifications" element={<ProtectedRoute allowedRoles={['teacher']}><NotificationsPage /></ProtectedRoute>} />
         </Route>
 
         {/* Student Routes */}
