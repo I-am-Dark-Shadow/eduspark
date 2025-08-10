@@ -15,6 +15,7 @@ import dashboardRoutes from './routes/dashboardRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 import paymentRoutes from './routes/paymentRoutes.js';
 import notificationRoutes from './routes/notificationRoutes.js';
+import courseRoutes from './routes/courseRoutes.js';
 
 // Load environment variables
 dotenv.config();
@@ -30,8 +31,8 @@ app.get('/', (req, res) => {
 
 // Allowable origins from .env
 const allowedOrigins = [
-  //'http://localhost:5173', 
-  'https://eduspark-one.vercel.app',
+  'http://localhost:5173', 
+  //'https://eduspark-one.vercel.app',
 ];
 
 // CORS setup to allow both dev and deployed frontends
@@ -64,6 +65,7 @@ app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/upload', uploadRoutes);
 app.use('/api/payments', paymentRoutes);
 app.use('/api/notifications', notificationRoutes);
+app.use('/api/courses', courseRoutes);
 
 // Error handling middleware
 app.use(notFound);

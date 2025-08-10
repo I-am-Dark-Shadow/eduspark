@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom'; // Import Link
 import useAuthStore from '../../store/authStore';
 import api from '../../services/api';
 import toast from 'react-hot-toast';
 import { motion } from 'framer-motion';
+import { LuArrowLeft } from 'react-icons/lu'; // Import an icon for the back button
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -42,15 +43,23 @@ const LoginPage = () => {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
-        // Responsive Change: Adjusted padding for different screen sizes
-        className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-6 md:p-8 space-y-6"
+        // Added relative positioning to contain the back button
+        className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl p-6 md:p-8 space-y-6"
       >
-        <div className="text-center">
-          {/* Responsive Change: Adjusted text size */}
+        {/* --- THIS IS THE NEW BUTTON --- */}
+        <Link 
+            to="/" 
+            className="absolute top-4 left-4 p-2 text-on-surface-secondary hover:text-on-surface hover:bg-border-color rounded-full transition-colors"
+            aria-label="Back to Home"
+        >
+            <LuArrowLeft size={20} />
+        </Link>
+        
+        <div className="text-center pt-8">
           <img
-            src="logo.png"
+            src="/logo.png"
             alt="Logo"
-            className="w-28 h-28 md:w-56 md:h-56 mx-auto"
+            className="w-28 h-28 md:w-40 md:h-40 mx-auto"
           />
           <p className="text-slate-500 mt-2">Sign in to your account</p>
         </div>
@@ -95,7 +104,7 @@ const LoginPage = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-primary text-white font-bold py-3 px-4 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all duration-300 disabled:bg-indigo-300"
+            className="w-full bg-primary text-white font-bold py-3 px-4 rounded-lg hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all duration-300 disabled:bg-orange-300"
           >
             {isLoading ? 'Signing In...' : 'Sign In'}
           </button>

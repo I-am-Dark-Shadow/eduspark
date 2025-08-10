@@ -1,12 +1,16 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import useAuthStore from './store/authStore';
 
-// Layout and Protected Route
-import Layout from './components/layout/Layout';
-import ProtectedRoute from './components/common/ProtectedRoute';
+// Import Layouts
+import Layout from './components/layout/Layout'; // Your existing dashboard layout
+import HomeNavbar from './components/home/HomeNavbar'; // The new public navbar
+import Footer from './components/home/Footer'; // The new public footer
 
-// Pages
+// Import Pages
+import ProtectedRoute from './components/common/ProtectedRoute';
+import HomePage from './pages/public/HomePage'; // The new homepage
 import LoginPage from './pages/auth/LoginPage';
+// ... (your existing page imports)
 import TeacherDashboard from './pages/teacher/TeacherDashboard';
 import CreateExamPage from './pages/teacher/CreateExamPage';
 import StudentsListPage from './pages/teacher/StudentsListPage';
@@ -23,6 +27,17 @@ import PaymentsPage from './pages/teacher/PaymentsPage';
 import PaymentRequestsPage from './pages/teacher/PaymentRequestsPage';
 import MyPaymentsPage from './pages/student/MyPaymentsPage';
 import NotificationsPage from './pages/teacher/NotificationsPage';
+import AddCoursePage from './pages/teacher/AddCoursePage';
+import CoursesPage from './pages/public/CoursesPage';
+
+// A new layout for public-facing pages like the homepage
+const PublicLayout = () => (
+  <>
+    <HomeNavbar />
+    <Outlet />
+    <Footer />
+  </>
+);
 
 function App() {
   const { user } = useAuthStore();
@@ -30,10 +45,16 @@ function App() {
   return (
     <Router>
       <Routes>
+        {/* Public Routes */}
+        <Route element={<PublicLayout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/courses" element={<CoursesPage />} />
+        </Route>
+        
         <Route path="/login" element={<LoginPage />} />
 
-        {/* Catch-all route for authenticated users */}
-        <Route path="/" element={
+        {/* Catch-all for logged-in users trying to access root */}
+        <Route path="/home" element={
           user ? (
             user.role === 'teacher' ? <Navigate to="/teacher/dashboard" /> : <Navigate to="/student/dashboard" />
           ) : (
@@ -41,7 +62,7 @@ function App() {
           )
         }/>
 
-        {/* Teacher Routes */}
+        {/* Teacher Routes (inside the dashboard layout) */}
         <Route element={<Layout />}>
           <Route path="/teacher/dashboard" element={<ProtectedRoute allowedRoles={['teacher']}><TeacherDashboard /></ProtectedRoute>} />
           <Route path="/teacher/create-exam" element={<ProtectedRoute allowedRoles={['teacher']}><CreateExamPage /></ProtectedRoute>} />
@@ -52,9 +73,10 @@ function App() {
           <Route path="/teacher/payments" element={<ProtectedRoute allowedRoles={['teacher']}><PaymentsPage /></ProtectedRoute>} />
           <Route path="/teacher/payment-requests" element={<ProtectedRoute allowedRoles={['teacher']}><PaymentRequestsPage /></ProtectedRoute>} />
           <Route path="/teacher/notifications" element={<ProtectedRoute allowedRoles={['teacher']}><NotificationsPage /></ProtectedRoute>} />
+          <Route path="/teacher/add-course" element={<ProtectedRoute allowedRoles={['teacher']}><AddCoursePage /></ProtectedRoute>} />
         </Route>
 
-        {/* Student Routes */}
+        {/* Student Routes (inside the dashboard layout) */}
         <Route element={<Layout />}>
           <Route path="/student/dashboard" element={<ProtectedRoute allowedRoles={['student']}><StudentDashboard /></ProtectedRoute>} />
           <Route path="/student/exams" element={<ProtectedRoute allowedRoles={['student']}><ExamsListPage /></ProtectedRoute>} />

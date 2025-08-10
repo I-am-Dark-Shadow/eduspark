@@ -4,7 +4,7 @@ import api from '../../services/api';
 import toast from 'react-hot-toast';
 import { 
   LuLayoutDashboard, LuBook, LuUsers, LuClipboardList, LuBell, 
-  LuUser, LuLogOut, LuFilePlus2, LuBadgeHelp , LuIndianRupee, LuMailQuestion, LuX
+  LuUser, LuLogOut, LuFilePlus2, LuBadgeHelp , LuIndianRupee, LuMailQuestion, LuX, LuVideo
 } from "react-icons/lu";
 
 const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
@@ -31,6 +31,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
     { icon: <LuIndianRupee />, text: 'Payment Status', path: '/teacher/payments' },
     { icon: <LuMailQuestion />, text: 'Payment Requests', path: '/teacher/payment-requests' },
     { icon: <LuBell />, text: 'Notifications', path: '/teacher/notifications' },
+    { icon: <LuVideo />, text: 'Add Course', path: '/teacher/add-course' },
   ];
 
   const studentLinks = [
