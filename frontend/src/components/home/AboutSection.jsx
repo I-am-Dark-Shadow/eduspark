@@ -39,22 +39,22 @@ const AboutSection = () => {
                 >
                     {/* All 4 images with different positions and animations */}
                     <img 
-                        src="/images/img (4).png" 
+                        src="/images/img (4).jpg" 
                         alt="Happy student 1" 
                         className="absolute top-0 left-0 w-3/5 sm:w-64 h-auto rounded-2xl object-cover shadow-lg animate-float-complex-1" 
                     />
                     <img 
-                        src="/images/img (8).png" 
+                        src="/images/img (8).jpg" 
                         alt="Student learning 1" 
                         className="absolute bottom-0 right-0 w-3/4 sm:w-80 h-auto rounded-2xl object-cover border-8 border-white shadow-lg animate-float-complex-2" 
                     />
                      <img 
-                        src="/images/img (10).png" // New Image 1
+                        src="/images/img (10).jpg" // New Image 1
                         alt="Happy student 2" 
                         className="hidden sm:block absolute top-0 right-1/4 w-2/5 sm:w-28 h-auto rounded-2xl object-cover border-4 border-white shadow-lg animate-float-complex-2" 
                     />
                      <img 
-                        src="/images/img (6).png" // New Image 2
+                        src="/images/img (6).jpg" // New Image 2
                         alt="Student learning 2" 
                         className="hidden sm:block absolute top-80 left-36 w-2/5 sm:w-40 h-auto rounded-2xl object-cover border-4 border-white shadow-lg animate-float-complex-2" 
                     />

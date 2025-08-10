@@ -79,8 +79,8 @@ const HeroSection = () => {
                         <img src="/images/img (11).png" alt="Student learning" className="w-full h-full rounded-full object-cover shadow-2xl" />
                         <div className="absolute inset-0 border-[10px] border-white/50 rounded-full"></div>
                     </div>
-                    <img ref={image1Ref} src="/images/img (7).png" alt="Student 1" className="w-32 h-32 sm:w-40 sm:h-40 object-cover rounded-full absolute top-8 left-0 shadow-lg border-4 border-white" />
-                    <img ref={image2Ref} src="/images/img (9).png" alt="Student 2" className="w-40 h-40 sm:w-48 sm:h-48 object-cover rounded-full absolute top-1/2 -translate-y-1/2 right-0 shadow-lg border-4 border-white" />
+                    <img ref={image1Ref} src="/images/img (7).jpg" alt="Student 1" className="w-32 h-32 sm:w-40 sm:h-40 object-cover rounded-full absolute top-8 left-0 shadow-lg border-4 border-white" />
+                    <img ref={image2Ref} src="/images/img (9).jpg" alt="Student 2" className="w-40 h-40 sm:w-48 sm:h-48 object-cover rounded-full absolute top-1/2 -translate-y-1/2 right-0 shadow-lg border-4 border-white" />
                 </div>
             </div>
         </section>

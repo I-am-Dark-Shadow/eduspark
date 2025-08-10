@@ -62,14 +62,14 @@ const WhyChooseUsSection = () => {
 
                     {/* Teacher image (top left) */}
                     <img 
-                        src="/images/img (5).png" 
+                        src="/images/img (5).jpg" 
                         alt="Teacher" 
                         className="absolute top-0 left-0 w-2/5 max-w-[200px] md:top-[-50px] md:left-[-50px] md:max-w-[250px] h-auto rounded-2xl object-cover shadow-lg border-4 border-white animate-float-medium" 
                     />
                     
                     {/* Building image (top right) */}
                     <img 
-                        src="/images/img (2).png" 
+                        src="/images/img (2).jpg" 
                         alt="University building" 
                         className="absolute top-10 right-8 w-1/3 max-w-[120px] md:top-8 md:right-60 md:max-w-[160px] h-auto rounded-2xl object-cover shadow-lg border-4 border-white animate-float-fast" 
                     />
