@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
-import AnimatedBackground from './AnimatedBackground';
+//import AnimatedBackground from './AnimatedBackground';
 
 const HeroSection = () => {
     // Create refs to target the image elements for animation
@@ -44,10 +44,10 @@ const HeroSection = () => {
     }, []);
 
     return (
-        <section className="bg-background py-20 lg:py-28 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-full z-0">
+        <section className="bg-transparent py-20 lg:py-28 relative overflow-hidden">
+            {/* <div className="absolute top-0 left-0 w-full h-full z-0">
                 <AnimatedBackground />
-            </div>
+            </div> */}
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
                 {/* Left Content Block */}

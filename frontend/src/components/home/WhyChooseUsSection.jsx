@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { LuCheckCheck } from 'react-icons/lu'; // Using the correct icon for your design
-import AnimatedBackground from './AnimatedBackground';
+//import AnimatedBackground from './AnimatedBackground';
 
 const sectionVariants = {
   hidden: { opacity: 0 },
@@ -20,15 +20,15 @@ const itemVariants = {
 const WhyChooseUsSection = () => {
     return (
         <motion.section 
-            className="py-16 sm:py-24 bg-background relative overflow-hidden"
+            className="py-16 sm:py-24 bg-transparent relative overflow-hidden"
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
             variants={sectionVariants}
         >
-            <div className="absolute top-0 left-0 w-full h-full z-0 opacity-30">
+            {/* <div className="absolute top-0 left-0 w-full h-full z-0 opacity-30">
                 <AnimatedBackground />
-            </div>
+            </div> */}
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-16 items-center relative z-10">
                 <motion.div variants={itemVariants}>

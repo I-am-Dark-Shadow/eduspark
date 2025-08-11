@@ -1,14 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-html {
-  scroll-behavior: smooth;
-}
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+
+  :root {
+    /* Light Theme (Default) */
+    --color-primary: #FF6B00;
+    /* #FF9B24 */
+    --color-secondary: #22D58A;
+    /* #22D58A */
+    --color-background: #FDFBF7;
+    /* #FDFBF7 */
+    --color-surface: #FFFFFF;
+    /* #FFFFFF */
+    --color-on-surface: #1F1F39;
+    /* #1F1F39 */
+    --color-on-surface-secondary: #69697B;
+    /* #69697B */
+    --color-border-color: #EFF0F6;
+    /* #EFF0F6 */
+  }
+
+  .dark {
+    /* Dark Theme */
+    --color-primary: #FF6B00;
+    /* #FF9B24 */
+    --color-secondary: #22D58A;
+    /* #22D58A */
+    --color-background: #bfc9e0;
+    /* #111827 */
+    --color-surface: #cdd4dd;
+    /* #1F2937 */
+    --color-on-surface: #F3F4F6;
+    /* #F3F4F6 */
+    --color-on-surface-secondary: #9CA3AF;
+    /* #9CA3AF */
+    --color-border-color: #374151;
+    /* #374151 */
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-on-surface antialiased;
   }
@@ -16,7 +54,8 @@ html {
 
 /* For loader animation */
 .loader {
-  border-top-color: #4f46e5; /* primary color */
+  border-top-color: #4f46e5;
+  /* primary color */
   animation: spin 1s linear infinite;
 }
 

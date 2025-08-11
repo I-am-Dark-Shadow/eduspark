@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
 import { LuPlay, LuClock } from 'react-icons/lu';
-import AnimatedBackground from './AnimatedBackground'; // Import the background
+//import AnimatedBackground from './AnimatedBackground'; // Import the background
 
 const PostCard = ({ course, onPlay }) => {
     const isComingSoon = course.status === 'coming-soon';
@@ -64,9 +64,9 @@ const BlogSection = () => {
     return (
         <section className="py-16 sm:py-24 relative overflow-hidden">
             {/* Layer 1: The animated background */}
-            <div className="absolute top-0 left-0 w-full h-full z-0 opacity-40">
+            {/* <div className="absolute top-0 left-0 w-full h-full z-0 opacity-40">
                 <AnimatedBackground />
-            </div>
+            </div> */}
 
             {/* Layer 2: Your main content */}
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

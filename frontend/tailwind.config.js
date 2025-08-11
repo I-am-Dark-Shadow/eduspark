@@ -15,6 +15,16 @@ export default {
         'on-surface': '#1F1F39',
         'on-surface-secondary': '#69697B',
         'border-color': '#EFF0F6',
+
+        // // These now point to our CSS variables
+        // primary: 'rgb(var(--color-primary) / <alpha-value>)',
+        // secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
+        // background: 'rgb(var(--color-background) / <alpha-value>)',
+        // surface: 'rgb(var(--color-surface) / <alpha-value>)',
+        // 'on-surface': 'rgb(var(--color-on-surface) / <alpha-value>)',
+        // 'on-surface-secondary': 'rgb(var(--color-on-surface-secondary) / <alpha-value>)',
+        // 'border-color': 'rgb(var(--color-border-color) / <alpha-value>)',
+        // danger: '#ef4444',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

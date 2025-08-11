@@ -2,7 +2,8 @@ import axios from 'axios';
 import useAuthStore from '../store/authStore';
 
 const api = axios.create({
-  baseURL: "https://eduspark-6rvb.vercel.app",  //"http://localhost:5001", 
+  //baseURL:   "http://localhost:5001", 
+  baseURL: "https://eduspark-6rvb.vercel.app",
   withCredentials: true, // This is crucial for sending cookies
 });
 

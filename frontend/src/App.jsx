@@ -8,6 +8,7 @@ import HomeNavbar from './components/home/HomeNavbar';
 import Footer from './components/home/Footer';
 import ProtectedRoute from './components/common/ProtectedRoute';
 import Spinner from './components/common/Spinner';
+import { useTheme } from './hooks/useTheme';
 
 // --- LAZY-LOADED PAGES ---
 // Public
@@ -53,6 +54,7 @@ const FullScreenLoader = () => (
 
 function App() {
   const { user } = useAuthStore();
+  useTheme();
 
   return (
     <Router>

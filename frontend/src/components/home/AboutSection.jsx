@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { LuCheckCheck } from 'react-icons/lu';
-import AnimatedBackground from './AnimatedBackground'; // Import the animated background
+//import AnimatedBackground from './AnimatedBackground'; // Import the animated background
 
 const sectionVariants = {
   hidden: { opacity: 0 },
@@ -20,16 +20,16 @@ const itemVariants = {
 const AboutSection = () => {
     return (
         <motion.section 
-            className="py-16 sm:py-24 bg-background overflow-hidden relative" // Add relative positioning
+            className="py-16 sm:py-24 bg-transparent overflow-hidden relative" // Add relative positioning
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
             variants={sectionVariants}
         >
             {/* Layer 1: The new animated background */}
-            <div className="absolute top-0 left-0 w-full h-full z-0 opacity-40">
+            {/* <div className="absolute top-0 left-0 w-full h-full z-0 opacity-40">
                 <AnimatedBackground />
-            </div>
+            </div> */}
 
             {/* Layer 2: The main content */}
              <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-16 items-center relative z-10">
