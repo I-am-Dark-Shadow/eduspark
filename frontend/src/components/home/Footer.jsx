@@ -4,7 +4,7 @@ const Footer = () => {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div>
                     <div className="flex items-center gap-2 mb-4">
-                        <img src="/logo.png" alt="EduSpark Logo" className="w-10 h-10" />
+                        <img src="/logo.png" alt="EduSpark Logo" className="w-10 h-10 bg-white p-[2px] rounded-md" />
                         <span className="text-2xl font-bold text-white">Edu<span className="text-primary">Spark</span></span>
                     </div>
                     <p className="text-sm">A new way to make students engaged in learning through a fun and interactive platform.</p>
