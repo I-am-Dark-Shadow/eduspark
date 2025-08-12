@@ -65,11 +65,11 @@ const ProfilePage = () => {
 
                  <div>
                     <label className="block text-sm font-medium text-slate-600 mb-1">Name</label>
-                    <input type="text" value={name} onChange={e => setName(e.target.value)} className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"/>
+                    <input type="text" value={name} disabled onChange={e => setName(e.target.value)} className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"/>
                  </div>
                  <div>
                     <label className="block text-sm font-medium text-slate-600 mb-1">Email</label>
-                    <input type="email" value={email} onChange={e => setEmail(e.target.value)} className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"/>
+                    <input type="email" value={email} disabled onChange={e => setEmail(e.target.value)} className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"/>
                  </div>
                  <div className="flex justify-end">
                     <button type="submit" disabled={isSaving} className="px-8 py-3 bg-primary text-white font-bold rounded-lg hover:bg-indigo-700 transition-colors disabled:bg-indigo-300">
