@@ -28,7 +28,7 @@ const HomeNavbar = () => {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
                 <Link to="/" className="flex items-center gap-2">
                     <img src="/logo.png" alt="EduSpark Logo" className="w-10 h-10" />
-                    <span className="text-2xl font-bold text-on-surface">EdunSpark</span>
+                    <span className="text-2xl font-bold text-on-surface">Edu<span className="text-primary">Spark</span></span>
                 </Link>
 
                 <nav className="hidden lg:flex items-center gap-8">
@@ -87,13 +87,9 @@ const HomeNavbar = () => {
                     <button
                         onClick={toggleTheme}
                         className={`relative w-[40px] h-[40px] lg:hidden flex items-center rounded-xl p-2 cursor-pointer transition-colors duration-500
-                            ${theme === 'light' ? 'bg-gradient-to-r from-orange-700 to-rose-400 shadow-md shadow-yellow-600' : 'bg-gradient-to-r from-blue-900 to-purple-900 shadow-md shadow-blue-600'}
+                            ${theme === 'light' ? 'bg-gradient-to-r from-orange-600 to-rose-400 shadow-md shadow-yellow-600' : 'bg-gradient-to-r from-blue-900 to-purple-900 shadow-md shadow-blue-600'}
                         `}
                     >
-
-
-
-
                         {/* The sliding circle with the icon */}
                         <motion.div
                             className="absolute bg-transparent w-[25px] h-[25px] rounded-xl flex items-center justify-center"
