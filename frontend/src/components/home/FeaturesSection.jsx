@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import AnimatedBackground from './AnimatedBackground'; // Import the background
+//import AnimatedBackground from './AnimatedBackground'; // Import the background
 
 const cardVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -24,9 +24,9 @@ const FeaturesSection = () => {
         // Added relative and overflow-hidden for the background effect
         <section className="py-16 sm:py-24 relative overflow-hidden">
             {/* Layer 1: The animated background */}
-            <div className="absolute top-0 left-0 w-full h-full z-0 opacity-40">
+            {/* <div className="absolute top-0 left-0 w-full h-full z-0 opacity-40">
                 <AnimatedBackground />
-            </div>
+            </div> */}
 
             {/* Layer 2: Your main content */}
             <motion.div
