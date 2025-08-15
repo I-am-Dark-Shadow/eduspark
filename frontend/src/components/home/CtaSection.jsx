@@ -50,7 +50,7 @@ const CtaSection = () => {
                     {loadVideo ? (
                         <video
                             ref={videoRef}
-                            src="/video.mp4" // Your video file
+                            src="https://res.cloudinary.com/dsaokpnjp/video/upload/v1754815984/video_drmpsk.mp4" // Your video file
                             loop
                             muted={isMuted}
                             playsInline
