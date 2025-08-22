@@ -22,10 +22,10 @@ const StatsSection = () => {
 
             {/* Layer 2: Your main content */}
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 relative z-10">
-                <StatItem icon={<LuBookOpen size={40} className="text-yellow-600"/>} value="20" label="Total Courses" iconBgColor="bg-yellow-100" />
-                <StatItem icon={<LuUsers size={40} className="text-pink-600"/>} value="100" label="Total Students" iconBgColor="bg-pink-100" />
-                <StatItem icon={<LuTrendingUp size={40} className="text-orange-600"/>} value="99%" label="Success Rate" iconBgColor="bg-orange-100" />
-                <StatItem icon={<LuVideo size={40} className="text-blue-600"/>} value="50" label="Total Videos" iconBgColor="bg-blue-100" />
+                <StatItem icon={<LuBookOpen size={40} className="text-yellow-600"/>} value="10" label="Total Courses" iconBgColor="bg-yellow-100" />
+                <StatItem icon={<LuUsers size={40} className="text-pink-600"/>} value="50" label="Total Students" iconBgColor="bg-pink-100" />
+                <StatItem icon={<LuTrendingUp size={40} className="text-orange-600"/>} value="96%" label="Success Rate" iconBgColor="bg-orange-100" />
+                <StatItem icon={<LuVideo size={40} className="text-blue-600"/>} value="20" label="Total Videos" iconBgColor="bg-blue-100" />
             </div>
         </section>
     );
