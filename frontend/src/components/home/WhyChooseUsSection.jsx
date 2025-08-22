@@ -76,7 +76,7 @@ const WhyChooseUsSection = () => {
 
                     {/* 5+ Years of Experience Circle */}
                     <div className="absolute top-28 left-1/4 md:top-1/4 md:left-1/4 -translate-x-1/2 -translate-y-1/2 w-32 h-32 md:w-40 md:h-40 bg-gradient-to-br from-orange-400 via-orange-500 to-red-500 rounded-full shadow-orange-400 flex flex-col items-center justify-center text-center text-white shadow-xl animate-float-fast">
-                        <p className="text-3xl md:text-5xl font-bold">5+</p>
+                        <p className="text-3xl md:text-5xl font-bold">2+</p>
                         <p className="font-semibold text-sm md:text-base leading-tight mt-1">Years Of<br/>Experiences</p>
                     </div>
                 </motion.div>
